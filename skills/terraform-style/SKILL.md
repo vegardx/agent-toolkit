@@ -8,6 +8,7 @@ description: >
   variables, null passthroughs, outputs, backend conventions, AWS S3 locking,
   permission boundaries, cycle-safe composition, terraform-docs, and tooling.
   Do not use for non-Terraform IaC such as Pulumi, CloudFormation, CDK, or Ansible.
+license: MIT
 ---
 
 # Terraform Style

@@ -41,6 +41,28 @@ intentionally includes scripts or assets.
 Future skills should be added only after their conventions have been deliberately
 worked through. Avoid checking in generated placeholder skills.
 
+## Distribution
+
+Use the Agent Skills format as the portable distribution layer. The standard
+shape is:
+
+```text
+skills/
+  <skill-name>/
+    SKILL.md
+    references/
+```
+
+GitHub CLI can validate, publish, search, install, update, and pin skills from
+GitHub repositories with `gh skill`. Publishing creates a GitHub release; install
+targets can place skills into the host-specific directories used by supported
+coding agents.
+
+There is no single cross-agent marketplace format for plugins, hooks, MCP
+servers, custom agents, and skills together. Those are still tool-specific
+surfaces. Keep them under `plugins/`, `hooks/`, or `adapters/` only when this
+repo contains real curated implementations for those surfaces.
+
 ## Skill Convention
 
 - Put each skill in a directory named exactly like the skill:
@@ -56,6 +78,8 @@ worked through. Avoid checking in generated placeholder skills.
   below the skill.
 - Make the YAML `description` trigger-rich because it is what the agent sees
   before deciding whether to load the skill.
+- Use `license: MIT` in skill frontmatter unless a specific skill needs a
+  different license.
 
 ## Portability
 
@@ -89,12 +113,16 @@ Use Git as the source of truth for toolkit versions.
   to `name` and `description`.
 - Mention the relevant tag or commit when installing or pinning toolkit content.
 
+## License
+
+This repository is licensed under the MIT License. See [LICENSE](LICENSE).
+
 ## Adding A New Skill
 
 1. Choose a kebab-case name that exactly matches the parent directory.
 2. Use the uniform `<tool>-style` suffix for coding-style skills.
 3. Create `skills/<skill-name>/SKILL.md`.
-4. Add YAML frontmatter with only `name` and `description`.
+4. Add YAML frontmatter with `name`, `description`, and `license`.
 5. Write the description in third person or imperative style: `Use when...`,
    `Covers...`, `Do not use...`.
 6. Include trigger verbs, file extensions, tool names, and key concepts in the
