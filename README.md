@@ -30,6 +30,7 @@ gh skill install vegardx/agent-toolkit terraform-style@v0.1.0 --agent codex --sc
 
 | name | when it triggers | link |
 | --- | --- | --- |
+| `github-agentic-workflows` | GitHub Agentic Workflows in `.github/workflows/*.md` and generated `.lock.yml`, including `gh aw`, engines, model aliases, safe outputs, network/firewall rules, GitHub permissions, secrets, Enterprise/Data Residency, and validation with actionlint, zizmor, and poutine. | [skills/github-agentic-workflows/SKILL.md](skills/github-agentic-workflows/SKILL.md) |
 | `terraform-style` | Terraform and HCL work in `.tf` and `.tfvars`, including modules, providers, variables, outputs, backends, AWS infrastructure, IAM, state config, tests, README docs, and CI-driven plan/apply automation. | [skills/terraform-style/SKILL.md](skills/terraform-style/SKILL.md) |
 
 Future skills should be added only after their conventions have been deliberately
@@ -44,6 +45,12 @@ agent-toolkit/
   AGENTS.md
 
   skills/
+    github-agentic-workflows/
+      SKILL.md
+      references/
+        official-docs.md
+        examples.md
+
     terraform-style/
       SKILL.md
       references/
