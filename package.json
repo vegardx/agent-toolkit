@@ -1,0 +1,22 @@
+{
+	"name": "@vegardx/agent-toolkit",
+	"version": "0.1.0",
+	"description": "Portable agent skills for Pi and other Agent Skills-compatible harnesses",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/vegardx/agent-toolkit.git"
+	},
+	"keywords": [
+		"agent-skills",
+		"pi-package"
+	],
+	"files": [
+		"skills"
+	],
+	"pi": {
+		"skills": [
+			"./skills"
+		]
+	}
+}
