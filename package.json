@@ -11,6 +11,10 @@
 		"agent-skills",
 		"pi-package"
 	],
+	"scripts": {
+		"test": "node --test",
+		"check": "npm test"
+	},
 	"files": [
 		"skills"
 	],
