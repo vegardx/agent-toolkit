@@ -28,12 +28,20 @@ gh skill install vegardx/agent-toolkit terraform-style@v0.1.0 --agent codex --sc
 
 ## Skills
 
+### User-invoked
+
+None.
+
+### Model-invoked
+
 | name | when it triggers | link |
 | --- | --- | --- |
 | `github` | GitHub platform work across GitHub.com, GitHub Enterprise Cloud, GHE.com Data Residency, and GitHub Enterprise Server, including repos, organizations, visibility, Enterprise Managed Users, SSO/token authorization, APIs, Apps, Actions, Agentic Workflows, permissions, host targeting, and safe mutation rules. | [skills/github/SKILL.md](skills/github/SKILL.md) |
 | `github-agentic-workflows` | GitHub Agentic Workflows in `.github/workflows/*.md` and generated `.lock.yml`, including `gh aw`, engines, model aliases, safe outputs, network/firewall rules, GitHub permissions, secrets, Enterprise/Data Residency, and validation with actionlint, zizmor, and poutine. | [skills/github-agentic-workflows/SKILL.md](skills/github-agentic-workflows/SKILL.md) |
 | `github-cli` | GitHub CLI work with `gh`, including auth, host/repo targeting, `GH_HOST`, `GH_REPO`, `GH_TOKEN`, `gh pr`, `gh issue`, `gh run`, `gh workflow`, `gh release`, `gh secret`, `gh variable`, `gh api`, REST, GraphQL, JSON output, non-interactive automation, and safe mutation. | [skills/github-cli/SKILL.md](skills/github-cli/SKILL.md) |
+| `subagents` | Direct delegation through Pi's `subagent` tool, including independent or parallel work, async lifecycle, sandboxing, worktree isolation, and failure diagnosis. | [skills/subagents/SKILL.md](skills/subagents/SKILL.md) |
 | `terraform-style` | Terraform and HCL work in `.tf` and `.tfvars`, including modules, providers, variables, outputs, backends, AWS infrastructure, IAM, state config, tests, README docs, and CI-driven plan/apply automation. | [skills/terraform-style/SKILL.md](skills/terraform-style/SKILL.md) |
+| `workflows` | Operating the Pi workflow extension through `workflow_list`, `workflow_run`, `workflow_dynamic`, and `workflow_wait`, including named and dynamic workflows, waiting, recovery, and diagnosis. | [skills/workflows/SKILL.md](skills/workflows/SKILL.md) |
 
 Future skills should be added only after their conventions have been deliberately
 worked through. Avoid checking in generated placeholder skills.
@@ -63,10 +71,16 @@ agent-toolkit/
       references/
         examples.md
 
+    subagents/
+      SKILL.md
+
     terraform-style/
       SKILL.md
       references/
         module-patterns.md
+
+    workflows/
+      SKILL.md
 ```
 
 Canonical skills live under `skills/`:
