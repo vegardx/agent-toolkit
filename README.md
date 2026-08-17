@@ -28,12 +28,24 @@ gh skill install vegardx/agent-toolkit terraform-style@v0.1.0 --agent codex --sc
 
 ## Skills
 
-| name | when it triggers | link |
-| --- | --- | --- |
-| `github` | GitHub platform work across GitHub.com, GitHub Enterprise Cloud, GHE.com Data Residency, and GitHub Enterprise Server, including repos, organizations, visibility, Enterprise Managed Users, SSO/token authorization, APIs, Apps, Actions, Agentic Workflows, permissions, host targeting, and safe mutation rules. | [skills/github/SKILL.md](skills/github/SKILL.md) |
-| `github-agentic-workflows` | GitHub Agentic Workflows in `.github/workflows/*.md` and generated `.lock.yml`, including `gh aw`, engines, model aliases, safe outputs, network/firewall rules, GitHub permissions, secrets, Enterprise/Data Residency, and validation with actionlint, zizmor, and poutine. | [skills/github-agentic-workflows/SKILL.md](skills/github-agentic-workflows/SKILL.md) |
-| `github-cli` | GitHub CLI work with `gh`, including auth, host/repo targeting, `GH_HOST`, `GH_REPO`, `GH_TOKEN`, `gh pr`, `gh issue`, `gh run`, `gh workflow`, `gh release`, `gh secret`, `gh variable`, `gh api`, REST, GraphQL, JSON output, non-interactive automation, and safe mutation. | [skills/github-cli/SKILL.md](skills/github-cli/SKILL.md) |
-| `terraform-style` | Terraform and HCL work in `.tf` and `.tfvars`, including modules, providers, variables, outputs, backends, AWS infrastructure, IAM, state config, tests, README docs, and CI-driven plan/apply automation. | [skills/terraform-style/SKILL.md](skills/terraform-style/SKILL.md) |
+### User-invoked
+
+- [`skill-authoring`](skills/skill-authoring/SKILL.md) — Design, write, review,
+  evaluate, and retire predictable Agent Skills. Invoke it explicitly with
+  `/skill-authoring`.
+
+### Model-invoked
+
+- [`github`](skills/github/SKILL.md) — GitHub platform behavior across GitHub.com,
+  GHE.com Data Residency, and GitHub Enterprise Server.
+- [`github-agentic-workflows`](skills/github-agentic-workflows/SKILL.md) — GitHub
+  Agentic Workflows, `gh aw`, permissions, network policy, safe outputs, and
+  validation.
+- [`github-cli`](skills/github-cli/SKILL.md) — GitHub CLI commands, auth, host and
+  repository targeting, APIs, output, and safe mutation.
+- [`terraform-style`](skills/terraform-style/SKILL.md) — Terraform and HCL
+  conventions for modules, variables, composition, state, documentation, and
+  tests.
 
 Future skills should be added only after their conventions have been deliberately
 worked through. Avoid checking in generated placeholder skills.
@@ -63,19 +75,35 @@ agent-toolkit/
       references/
         examples.md
 
+    skill-authoring/
+      SKILL.md
+      agents/
+        openai.yaml
+      evals/
+        cases.json
+      references/
+        evaluation.md
+        structure.md
+        taxonomy.md
+
     terraform-style/
       SKILL.md
       references/
         module-patterns.md
 ```
 
-Canonical skills live under `skills/`:
+Canonical skills live under `skills/`. Only add optional directories a skill
+actually uses:
 
 ```text
 skills/
   <skill-name>/
     SKILL.md
-    references/
+    agents/       # harness metadata, when needed
+    references/   # selectively loaded guidance
+    scripts/      # deterministic mechanics
+    assets/       # templates and static inputs
+    evals/        # behavior cases and fixtures
 ```
 
 Plugins, hooks, agents, MCP servers, and other packaging layers may be added
